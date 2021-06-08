@@ -3,7 +3,7 @@ import axios from 'axios'
 const baseApi = axios.create({baseURL:"http://localhost:3000/predio/"})
 const PredioDao = 
 {
-    add: async (dados,setloading,setSavedModal,redirect)=> 
+    add: async (dados,setloading,setSavedModal)=> 
     {
         baseApi.post('/add',
         {
@@ -38,7 +38,7 @@ const PredioDao =
                      console.log(dados)
                     setTimeout(()=>{
                          setloading(false)
-                         //setSavedModal(true)
+                         setSavedModal(true)
                      },3000)
                  }
             }
@@ -57,6 +57,15 @@ const PredioDao =
         ).catch(
             error => console.log(error)
         )
+    },
+    delete: async (identificador) =>
+    {
+        baseApi.post('/delete',{"id":identificador}).then(respose=> 
+            {
+                console.log(respose)
+            }).catch(
+                erro => console.log(erro)
+            )
     }
 }
 export default PredioDao

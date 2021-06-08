@@ -12,18 +12,27 @@ import {
     ModalCloseButton,
     Flex, Table,Thead,Tbody,Th,Td,Tr, Button
   } from "@chakra-ui/react"
+import DeletePredioDialog from './Components/DeletePredioDialog';
+import UpdatePredio from './Components/UpdatePredio';
 
 export default function Predios() 
 {
-    const {predios, read} = useContext(PredioProvider)
+    const {predios,read,remove} = useContext(PredioProvider)
     useEffect(() => {
         read()
     })
     const [updateModalShow, setupdateModalShow] = useState(false)
+    const [deleteModal, setdeleteModal] = useState(false)
+    const [idDelete, setidDelete] = useState("")
     const editClicked = (item) =>
     {
         setupdateModalShow(true)
     }
+    const mostrar = (id) =>{
+        setidDelete(id)
+        setdeleteModal(true)
+    }
+    const apagar = () => remove(idDelete)
 
     return (
         <Flex>            
@@ -70,7 +79,7 @@ export default function Predios()
                                             <Button onClick={()=> editClicked()} colorScheme="orange" marginBottom="5">
                                                 <AiFillEdit/>
                                             </Button>
-                                            <Button colorScheme="red">
+                                            <Button colorScheme="red" onClick={()=> mostrar(dados.idPredio)}>
                                                 <RiDeleteBin6Line/>
                                             </Button>
                                         </div>
@@ -83,21 +92,9 @@ export default function Predios()
                     
                     </Table>
                     
-                    
-            <Modal isOpen={updateModalShow} onClose={()=>console.log("Closed")} >
-                    <ModalContent>
-                    <ModalHeader>Atualizar dados do projeto</ModalHeader>
-                    <ModalCloseButton onClick={()=> setupdateModalShow(false)}/>
+            <DeletePredioDialog show={deleteModal} set={setdeleteModal} apagar={apagar}/>   
 
-                    <ModalBody>
-                        
-                    </ModalBody>
-
-                    <ModalFooter>
-                        
-                    </ModalFooter>
-                    </ModalContent>
-            </Modal>
+            <UpdatePredio show={updateModalShow} set={setupdateModalShow}/>
         </Flex>
     )
 }

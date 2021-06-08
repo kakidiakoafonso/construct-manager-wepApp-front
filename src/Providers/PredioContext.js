@@ -12,8 +12,9 @@ export default function PredioContext({children})
 
     const add = (e,setloading,setSavedModal) => Controller.add(e,setloading,setSavedModal,redirect)
     const read = () => Controller.select(setpredios)
+    const remove = (id) => Controller.delete(id)
     return (
-        <PredioProvider.Provider value={{add,read,predios}}>
+        <PredioProvider.Provider value={{add,read,predios,remove}}>
             {children}
         </PredioProvider.Provider>
     )
