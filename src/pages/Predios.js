@@ -18,17 +18,18 @@ import UpdatePredio from './Components/UpdatePredio';
 export default function Predios() 
 {
     const {predios,read,remove} = useContext(PredioProvider)
-    useEffect(() => {
-        read()
-    })
+    useEffect(() => { read() })
     const [updateModalShow, setupdateModalShow] = useState(false)
     const [deleteModal, setdeleteModal] = useState(false)
     const [idDelete, setidDelete] = useState("")
+    const [userInfo, setuserInfo] = useState("")
     const editClicked = (item) =>
     {
         setupdateModalShow(true)
+        setuserInfo(item)
+        console.log(userInfo)
     }
-    const mostrar = (id) =>{
+    const mostrar = (id,item) =>{
         setidDelete(id)
         setdeleteModal(true)
     }
@@ -76,10 +77,10 @@ export default function Predios()
                                     <Td>{dados.numero}</Td>
                                     <Td>
                                         <div>
-                                            <Button onClick={()=> editClicked()} colorScheme="orange" marginBottom="5">
+                                            <Button onClick={()=> editClicked(dados)} colorScheme="orange" marginBottom="5">
                                                 <AiFillEdit/>
                                             </Button>
-                                            <Button colorScheme="red" onClick={()=> mostrar(dados.idPredio)}>
+                                            <Button colorScheme="red" onClick={()=> mostrar(dados.idPredio,dados)}>
                                                 <RiDeleteBin6Line/>
                                             </Button>
                                         </div>
@@ -94,7 +95,7 @@ export default function Predios()
                     
             <DeletePredioDialog show={deleteModal} set={setdeleteModal} apagar={apagar}/>   
 
-            <UpdatePredio show={updateModalShow} set={setupdateModalShow}/>
+            <UpdatePredio show={updateModalShow} set={setupdateModalShow} dados={userInfo}/>
         </Flex>
     )
 }

@@ -9,24 +9,29 @@ import Estradas from './pages/Estradas';
 import Login from './pages/Login';
 import AddPredios from './pages/AddPredios';
 import PredioContext from './Providers/PredioContext';
+import EstradaContext from './Providers/EstradaContext';
+import AddEstradas from './pages/AddEstrada';
 
 function App() 
 {
   return (
     <>
       <ChakraProvider>
-      <PredioContext>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path='/' exact component={Login} />
-          <Route path='/home' exact component={Home} />
-          <Route path='/predios' component={Predios} />
-          <Route path='/addpredio' component={AddPredios} />
-          <Route path='/estradas' component={Estradas} />
-        </Switch>
-      </Router>
-      </PredioContext>
+          <PredioContext>
+            <EstradaContext>
+              <Router>
+                <Navbar />
+                <Switch>
+                  <Route path='/' exact component={Login} />
+                  <Route path='/home' exact component={Home} />
+                  <Route path='/predios' component={Predios} />
+                  <Route path='/addpredio' component={AddPredios} />
+                  <Route path='/estradas' component={Estradas} />
+                  <Route path='/addestradas' component={AddEstradas} />
+                </Switch>
+              </Router>
+            </EstradaContext>
+          </PredioContext>
       </ChakraProvider>
     </>
   );

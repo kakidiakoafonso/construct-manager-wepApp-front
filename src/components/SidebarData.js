@@ -2,6 +2,8 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import {ImRoad}  from 'react-icons/im';
+import {FaBuilding}  from 'react-icons/fa';
 
 export const SidebarData = [
   {
@@ -13,19 +15,25 @@ export const SidebarData = [
   {
     title: 'Predios',
     path: '/predios',
-    icon: <IoIcons.IoIosPaper />,
+    icon: <FaBuilding />,
     cName: 'nav-text'
   },
   {
     title: 'Adicionar predio',
     path: '/addpredio',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FaBuilding />,
     cName: 'nav-text'
   },
   {
     title: 'Estradas',
     path: '/estradas',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <ImRoad />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Adicionar estrada',
+    path: '/addestradas',
+    icon: <ImRoad />,
     cName: 'nav-text'
   },
   {

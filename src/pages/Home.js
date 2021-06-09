@@ -1,10 +1,11 @@
 import React from 'react';
+import { Flex, Spacer } from "@chakra-ui/react"
 
 function Home() {
   return (
-    <div className='home'>
-      <h1>Home</h1>
-    </div>
+    <Flex>
+        
+    </Flex>
   );
 }
 
