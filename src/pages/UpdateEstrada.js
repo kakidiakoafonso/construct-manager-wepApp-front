@@ -1,18 +1,17 @@
 import React,{useState,useContext} from 'react'
-import { PredioProvider } from '../Providers/PredioContext'
-import { Flex, Box ,Button,FormControl,FormLabel,Input,Select,useToast} from "@chakra-ui/react"
-import AlertComponent from './Components/AlertComponent'
-import {useHistory} from 'react-router-dom'
+import { EstradaProvider } from '../Providers/EstradaContext'
+import { Flex, Box ,Button,FormControl,FormLabel,useToast,Input,Select} from "@chakra-ui/react"
+import AlertComponent from './Components/AlertEstrada'
+import { useHistory } from 'react-router'
 
-export default function AddPredios({location}) 
+export default function UpdateEstradas({location}) 
 {
-    const redirect = useHistory()
-    const navega = () => redirect.push('predios')
     const params = location.state.dados
     const toast = useToast()
-    console.log(params)
-    const {update} = useContext(PredioProvider)
-    
+    const {update} = useContext(EstradaProvider)
+    console.log(params);
+    const redirect = useHistory()
+    const nav = () => redirect.push('estradas')
     const sucess = () =>{
         toast({
             title: "Sucesso.",
@@ -23,10 +22,10 @@ export default function AddPredios({location})
           })
     }
 
-    const Update = () =>
+    const Atualizar = () =>
     {
         const dados =         {
-            id: id,
+            id : id,
             nome:nome, 
             descricao : descricao, 
             orcamento : orcamento, 
@@ -35,10 +34,6 @@ export default function AddPredios({location})
             duracao : duracao,
             percentualConformidade : percentual,
             tipo: tipo,
-            alturaMaxima : alturaMaxima,
-            provincia : provincia,
-            municipio : municipio,
-            rua : rua,
             numero : numero,
             clienteNome : clienteNome,
             clienteSexo : clienteSexo,
@@ -49,12 +44,16 @@ export default function AddPredios({location})
             clienteNumero : clienteNumero,
             arquitetoNome : arquitetoNome,
             arquitetoSexo : arquitetoSexo,
-            arquitetoAnoExperiencia : arquitetoExperiencia
+            arquitetoAnoExperiencia : arquitetoExperiencia,
+            dentro: dentro,
+            comprimento:comprimento, 
+            
         }
-        update(dados,setloading, setSavedModal,sucess,navega)
+        update(dados,setloading,sucess,nav)
         setloading(true)
     }
-    const [id, setid] = useState(params.idPredio)
+
+    const [id, setid] = useState(params.idEstrada)
     const [nome, setnome] = useState(params.nome)
     const [descricao, setdescricao] = useState(params.descricao)
     const [orcamento, setorcamento] = useState(params.orcamento)
@@ -62,30 +61,31 @@ export default function AddPredios({location})
     const [dataInicio, setdataInicio] = useState(params.dataInicio)
     const [duracao, setduracao] = useState(params.duracao)
     const [percentual, setpercentual] = useState(params.percentualConformidade)
-    const [tipo, settipo] = useState(params.tipo)
-    const [alturaMaxima, setalturaMaxima] = useState(params.alturaMaxima)
-    const [provincia, setprovincia] = useState(params.provincia)
-    const [municipio, setmunicipio] = useState(params.municipio)
-    const [rua, setrua] = useState(params.rua)
+    const [tipo, settipo] = useState(params.ferroviasEstradas)
+    const [comprimento, setcomprimento] = useState(params.comprimento)
     const [numero, setnumero] = useState(params.numero)
     const [clienteNome, setclienteNome] = useState(params.clienteNome)
     const [clienteSexo, setclienteSexo] = useState(params.clienteSexo)
     const [tipoCliente, settipoCliente] = useState(params.clientePrivado)
-    const [clienteProvincia, setclienteProvincia] = useState(params.clientePrivado)
+    const [clienteProvincia, setclienteProvincia] = useState(params.clienteProvincia)
     const [clienteMunicipio, setclienteMunicipio] = useState(params.clienteMunicipio)
     const [clienteRua, setclienteRua] = useState(params.clienteRua)
     const [clienteNumero, setclienteNumero] = useState(params.clienteNumero)
     const [arquitetoNome, setarquitetoNome] = useState(params.arquitetoNome)
     const [arquitetoSexo, setarquitetoSexo] = useState(params.arquitetoSexo)
-    const [arquitetoExperiencia, setarquitetoExperiencia] = useState(params.arquitetoAnoExperiencia)
+    const [arquitetoExperiencia, setarquitetoExperiencia] = useState("")
+    const [dentro, setdentro] = useState(params.dentroProvincia)
 
     const [loading, setloading] = useState(false)
     const [SavedModal, setSavedModal] = useState(false)
 
 
     return (
-        <Flex height="80vh" justifyContent="center" alignItems="center">
-           
+        <Flex height="80vh" justifyContent="center" alignItems="center" flexDirection="column">
+            <Box>
+                <h1>Estradas</h1>
+            </Box>
+           <Flex width="90%" justifyContent="center">
            <Box width="20%" marginRight="10px">
             <FormControl id="email">
                 <FormLabel>Nome</FormLabel>
@@ -96,8 +96,8 @@ export default function AddPredios({location})
                 <Input  required  type="date" value={dataInicio} onChange={ e=> setdataInicio(e.target.value)}/>
             </FormControl>
             <FormControl id="email">
-                <FormLabel>Altura máxima</FormLabel>
-                <Input  required type="text" value={alturaMaxima} onChange={ e=> setalturaMaxima(e.target.value)}/>
+                <FormLabel>Comprimento</FormLabel>
+                <Input  required type="text" value={comprimento} onChange={ e=> setcomprimento(e.target.value)}/>
             </FormControl>
             <FormControl id="email">
                 <FormLabel>Número</FormLabel>
@@ -121,10 +121,7 @@ export default function AddPredios({location})
                 <FormLabel>Duração</FormLabel>
                 <Input required type="number" value={duracao} onChange={ e=> setduracao(e.target.value)}/>
             </FormControl>
-            <FormControl id="email">
-                <FormLabel>Província</FormLabel>
-                <Input type="text" value={provincia} onChange={ e=> setprovincia(e.target.value)}/>
-            </FormControl>
+            
             <FormControl id="email">
                 <FormLabel>Nome do cliente</FormLabel>
                 <Input type="text" value={clienteNome} onChange={ e=> setclienteNome(e.target.value)}/>
@@ -149,10 +146,7 @@ export default function AddPredios({location})
                 <FormLabel>Percentual conformidade</FormLabel>
                 <Input type="text" value={percentual} onChange={ e=> setpercentual(e.target.value)}/>
             </FormControl>
-            <FormControl id="email">
-                <FormLabel>Município</FormLabel>
-                <Input type="text" value={municipio} onChange={ e=> setmunicipio(e.target.value)}/>
-            </FormControl>
+            
             <FormControl id="email" marginTop="25px">
                 <Select placeholder="Genero do cliente" value={clienteSexo} onChange={ e=> setclienteSexo(e.target.value)}>
                     <option value="Masculino">Masculino</option>
@@ -175,14 +169,11 @@ export default function AddPredios({location})
             </FormControl>
             <FormControl id="email" marginTop="25px">
                 <Select placeholder="Tipo" value={tipo} onChange={ e=> settipo(e.target.value)}>
-                    <option value="Industrias">Industrias</option>
-                    <option value="Escritorios">Escritorios</option>
+                    <option value="Estrada">Estrada</option>
+                    <option value="Ferrovias">Ferrovias</option>
                 </Select>
             </FormControl>
-            <FormControl id="email">
-                <FormLabel>Rua</FormLabel>
-                <Input type="text" value={rua} onChange={ e=> setrua(e.target.value)}/>
-            </FormControl>
+            
             <FormControl id="email" marginTop="25px">
                 <Select placeholder="Tipo de cliente" value={tipoCliente} onChange={ e=> settipoCliente(e.target.value)}>
                     <option value="Público">Público</option>
@@ -193,21 +184,27 @@ export default function AddPredios({location})
                 <FormLabel>Número da casa do cliente</FormLabel>
                 <Input type="number" value={clienteNumero} onChange={ e=> setclienteNumero(e.target.value)}/>
             </FormControl>
-            <FormControl id="email" marginTop="25px">
-                <Button onClick={()=> Update()} 
+            <FormControl id="email" marginTop="29px">
+            <Select placeholder="Projeto provincial" value={dentro} onChange={ e=> setdentro(e.target.value)}>
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                </Select>
+            </FormControl>
+            
+           </Box>
+           
+                <AlertComponent show={SavedModal}/>
+            </Flex>
+            <Box width="30%">
+               
+           <Button onClick={()=> Atualizar()} 
                     isLoading={loading}
-                    loadingText="Enviando os dados"
+                    loadingText="Atualizando os dados"
                     colorScheme="blue" _hover={{backgroundColor:'green'}}
                     width="100%">
                    Atualizar
                 </Button>
-            </FormControl>
            </Box>
-        
-        
-            
-            
         </Flex>
     )
 }
-

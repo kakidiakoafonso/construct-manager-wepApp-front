@@ -2,22 +2,15 @@ import React,{useState,useContext,useEffect} from 'react'
 import { EstradaProvider } from '../Providers/EstradaContext'
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    Flex, Table,Thead,Tbody,Th,Td,Tr, Button
-  } from "@chakra-ui/react"
+import {Flex, Table,Thead,Tbody,Th,Td,Tr, Button} from "@chakra-ui/react"
 import DeletePredioDialog from './Components/DeletePredioDialog';
 import DeleteEstradaDialog from './Components/DeleteEstradaDialog';
 import UpdatePredio from './Components/UpdatePredio';
+import { useHistory } from 'react-router';
 
 export default function Estradas() 
 {
+    const redirect = useHistory()
     const {estradas,read,remove} = useContext(EstradaProvider)
     useEffect(() => { read() })
     const [updateModalShow, setupdateModalShow] = useState(false)
@@ -71,7 +64,7 @@ export default function Estradas()
                                     <Td>{dados.dentroProvincia == 1? "Sim":"Não"}</Td>
                                     <Td>
                                         <div>
-                                            <Button onClick={()=> editClicked(dados)} colorScheme="orange" marginBottom="5">
+                                            <Button onClick={()=> redirect.push('updateestradas',{dados: dados})} colorScheme="orange" marginBottom="5">
                                                 <AiFillEdit/>
                                             </Button>
                                             <Button colorScheme="red" onClick={()=> mostrar(dados.idEstrada,dados)}>

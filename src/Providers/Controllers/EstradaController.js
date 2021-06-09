@@ -3,6 +3,63 @@ import axios from 'axios'
 const baseApi = axios.create({baseURL:"http://localhost:3000/estrada/"})
 const PredioDao = 
 {
+    update: async (dados,setloading,sucess,nav)=> 
+    {
+        console.log(dados)
+        baseApi.post('/update',
+        {
+            "id": dados.id,
+            "nome":dados.nome, 
+            "descricao" : dados.descricao, 
+            "orcamento" : dados.orcamento, 
+            "codigoIdentificacao": dados.codigoIdentificacao, 
+            "dataInicio" : dados.dataInicio,
+            "duracao" : dados.duracao,
+            "percentualConformidade" : dados.percentualConformidade,
+            "comprimento" : dados.comprimento, 
+            "ferroviaEstrada" : dados.tipo,
+            "dentroProvincia" : dados.dentro,
+            "numero" : dados.numero,
+            "clienteNome" : dados.clienteNome,
+            "clienteSexo" : dados.clienteSexo,
+            "clientePrivado" : dados.clientePrivado,
+            "clienteProvincia" : dados.clienteProvincia,
+            "clienteMunicipio" : dados.clienteMunicipio,
+            "clienteRua" : dados.clienteRua,
+            "clienteNumero" : dados.clienteRua,
+            "arquitetoNome" : dados.arquitetoNome,
+            "arquitetoSexo" : dados.arquitetoSexo,
+            "arquitetoAnoExperiencia" : dados.arquitetoAnoExperiencia
+    
+        }
+        ).then(
+            response => {
+                {
+                    console.log(response)
+                     console.log(dados)
+                    setTimeout(()=>{
+                         setloading(false)
+                         sucess()
+                         nav()
+                     },3000)
+                 }
+            }
+         ).catch(
+             error => console.log(error)
+         )
+        
+    },
+    select: async (set)=> 
+    {
+        
+        baseApi.get('/listar').then(
+            response => {
+                set(response.data)
+            }
+        ).catch(
+            error => console.log(error)
+        )
+    },
     add: async (dados,setloading,setSavedModal)=> 
     {
         baseApi.post('/add',
