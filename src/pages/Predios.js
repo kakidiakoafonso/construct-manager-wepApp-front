@@ -1,4 +1,5 @@
 import React,{useState,useContext,useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import { PredioProvider } from '../Providers/PredioContext'
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -17,6 +18,7 @@ import UpdatePredio from './Components/UpdatePredio';
 
 export default function Predios() 
 {
+    const redirect = useHistory()
     const {predios,read,remove} = useContext(PredioProvider)
     useEffect(() => { read() })
     const [updateModalShow, setupdateModalShow] = useState(false)
@@ -77,7 +79,9 @@ export default function Predios()
                                     <Td>{dados.numero}</Td>
                                     <Td>
                                         <div>
-                                            <Button onClick={()=> editClicked(dados)} colorScheme="orange" marginBottom="5">
+                                            <Button onClick={()=> {
+                                                redirect.push("updatepredio", { dados: dados})
+                                            }} colorScheme="orange" marginBottom="5">
                                                 <AiFillEdit/>
                                             </Button>
                                             <Button colorScheme="red" onClick={()=> mostrar(dados.idPredio,dados)}>

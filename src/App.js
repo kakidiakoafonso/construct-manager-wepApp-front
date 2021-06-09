@@ -11,6 +11,7 @@ import AddPredios from './pages/AddPredios';
 import PredioContext from './Providers/PredioContext';
 import EstradaContext from './Providers/EstradaContext';
 import AddEstradas from './pages/AddEstrada';
+import UpdatePedio from './pages/UpdatePedio';
 
 function App() 
 {
@@ -24,8 +25,11 @@ function App()
                 <Switch>
                   <Route path='/' exact component={Login} />
                   <Route path='/home' exact component={Home} />
+                  
                   <Route path='/predios' component={Predios} />
                   <Route path='/addpredio' component={AddPredios} />
+                  <Route path='/updatepredio' component={UpdatePedio} />
+                  
                   <Route path='/estradas' component={Estradas} />
                   <Route path='/addestradas' component={AddEstradas} />
                 </Switch>

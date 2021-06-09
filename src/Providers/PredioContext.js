@@ -1,20 +1,20 @@
 import React,{createContext,useState}from 'react'
 import Controller from './Controllers/PredioProviderController'
-import {useHistory} from 'react-router-dom'
+
 
 export const PredioProvider = createContext()
 export default function PredioContext({children}) 
 {
-    const redirect = useHistory()
-    //States
+    
     const [predios, setpredios] = useState([])
+    
 
-
-    const add = (e,setloading,setSavedModal) => Controller.add(e,setloading,setSavedModal,redirect)
+    const add = (e,setloading,setSavedModal) => Controller.add(e,setloading,setSavedModal)
+    const update = (e,setloading,setSavedModal,sucess,navega) => Controller.update(e,setloading,setSavedModal,navega,sucess)
     const read = () => Controller.select(setpredios)
     const remove = (id) => Controller.delete(id)
     return (
-        <PredioProvider.Provider value={{add,read,predios,remove}}>
+        <PredioProvider.Provider value={{add,read,predios,remove,update}}>
             {children}
         </PredioProvider.Provider>
     )
