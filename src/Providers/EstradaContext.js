@@ -11,11 +11,12 @@ export default function EstradaContext({children})
 
 
     const add = (e,setloading,setSavedModal) => Controller.add(e,setloading,setSavedModal,redirect)
-    const update = (e,setloading,sucess,nav) => Controller.update(e,setloading,sucess,nav)
+    const update = (e,setloading,sucess,nav,erroMsg) => Controller.update(e,setloading,sucess,nav,erroMsg)
+    const updatePercentual = (id,codigoIdentificacao,percentualConformidade) => Controller.updatePercentual(id,codigoIdentificacao,percentualConformidade)
     const read = () => Controller.select(setestradas)
     const remove = (id) => Controller.delete(id)
     return (
-        <EstradaProvider.Provider value={{add,read,estradas,remove,update}}>
+        <EstradaProvider.Provider value={{add,read,estradas,remove,update,updatePercentual}}>
             {children}
         </EstradaProvider.Provider>
     )

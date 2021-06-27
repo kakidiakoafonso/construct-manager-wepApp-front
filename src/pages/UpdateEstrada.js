@@ -21,6 +21,15 @@ export default function UpdateEstradas({location})
             isClosable: true,
           })
     }
+    const erroMsg = () =>{
+        toast({
+            title: "Erro na atualização dos dados!",
+            description: "Dados não atualizados.",
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+          })
+    }
 
     const Atualizar = () =>
     {
@@ -49,7 +58,7 @@ export default function UpdateEstradas({location})
             comprimento:comprimento, 
             
         }
-        update(dados,setloading,sucess,nav)
+        update(dados,setloading,sucess,nav,erroMsg)
         setloading(true)
     }
 

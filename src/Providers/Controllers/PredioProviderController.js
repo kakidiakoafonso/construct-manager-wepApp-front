@@ -117,6 +117,17 @@ const PredioDao =
             }).catch(
                 erro => console.log(erro)
             )
+    },
+    projetoLongo: async (municipio,set) =>
+    {
+        console.log(municipio);
+        baseApi.post('/listar/clientelongo',{"municipio":municipio}).then(response=> 
+            {
+                console.log(response.data[0])
+                set(response.data[0])
+            }).catch(
+                erro => console.log(erro)
+            )
     }
 }
 export default PredioDao

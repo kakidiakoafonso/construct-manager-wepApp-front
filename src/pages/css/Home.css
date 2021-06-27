@@ -1,0 +1,41 @@
+
+.HomeContainer
+{
+    width:80%;
+    height:400px;
+    margin-Top:2%;
+    display: flex;
+    flex-direction: column;
+}
+.homeCard
+{
+    display: flex;
+    height: 80%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.card
+{
+    margin-top: 2%;
+    display: flex;
+    width: 30%;
+    height: 50%;
+    background-color: #000;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: all .2s ease-in-out;
+}
+.titulo{
+    font-size: xx-large;
+    color:#fff;
+}
+.card-info
+{
+    color:#fff;
+}
+.card:hover{
+    transform: scale(1.1);
+}

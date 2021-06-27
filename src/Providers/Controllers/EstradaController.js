@@ -3,7 +3,7 @@ import axios from 'axios'
 const baseApi = axios.create({baseURL:"http://localhost:3000/estrada/"})
 const PredioDao = 
 {
-    update: async (dados,setloading,sucess,nav)=> 
+    update: async (dados,setloading,sucess,nav,erroMsg)=> 
     {
         console.log(dados)
         baseApi.post('/update',
@@ -45,7 +45,14 @@ const PredioDao =
                  }
             }
          ).catch(
-             error => console.log(error)
+             error => {
+                 console.log(error)
+                 setTimeout(()=>{
+                    setloading(false)
+                    erroMsg()
+                    nav()
+                },3000)
+                }
          )
         
     },
@@ -119,6 +126,19 @@ const PredioDao =
     delete: async (identificador) =>
     {
         baseApi.post('/delete',{"id":identificador}).then(respose=> 
+            {
+                console.log(respose)
+            }).catch(
+                erro => console.log(erro)
+            )
+    },
+    updatePercentual: async (id,codigoIdentificacao,percentualConformidade) =>
+    {
+        baseApi.post('/updatepercentual',{
+            "id":id,
+            "codigoIdentificacao":codigoIdentificacao,
+            "percentualConformidade":percentualConformidade
+        }).then(respose=> 
             {
                 console.log(respose)
             }).catch(
