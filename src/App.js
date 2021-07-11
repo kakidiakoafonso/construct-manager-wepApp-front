@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Predios from './pages/Predios';
 import Estradas from './pages/Estradas';
-import Login from './pages/Login';
+// import Login from './pages/Login';
 import AddPredios from './pages/AddPredios';
 import PredioContext from './Providers/PredioContext';
 import EstradaContext from './Providers/EstradaContext';
@@ -24,7 +24,7 @@ function App()
               <Router>
                 <Navbar />
                 <Switch>
-                  <Route path='/' exact component={Login} />
+                  <Route path='/' exact component={Home} />
                   <Route path='/home' exact component={Home} />
                   
                   <Route path='/predios' component={Predios} />

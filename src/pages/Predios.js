@@ -70,7 +70,7 @@ export default function Predios()
                                     <Td>{dados.codigoIdentificacao}</Td>
                                     <Td>{dados.dataInicio}</Td>
                                     <Td>{dados.duracao}</Td>
-                                    <Td>{dados.percentualConformidade}</Td>
+                                    <Td>{dados.percentualConformidade}%</Td>
                                     <Td>{dados.tipo}</Td>
                                     <Td>{dados.alturaMaxima}</Td>
                                     <Td>{dados.provincia}</Td>

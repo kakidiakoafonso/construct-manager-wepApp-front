@@ -14,9 +14,10 @@ export default function PredioContext({children})
     const read = () => Controller.select(setpredios)
     const remove = (id) => Controller.delete(id)
     const getProjetoLongo = (municipio) => Controller.projetoLongo(municipio,setinfoProjetoLongo)
+    const getProjeto = () => Controller.projetoLongo("Candombe",setinfoProjetoLongo)
 
     useEffect(() => {
-        getProjetoLongo()
+        getProjeto()
     }, [])
     return (
         <PredioProvider.Provider value={{add,read,predios,remove,update,infoProjetoLongo,getProjetoLongo}}>

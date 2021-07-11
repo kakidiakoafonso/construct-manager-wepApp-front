@@ -13,13 +13,6 @@ function Home()
           
             <div className="homeCard">
               <div className="card">
-                <h1 className="titulo">Projetos longo</h1>
-                  <h1 className="card-info">
-                    Dados do cliente do projeto de
-                    construção mais longo que é desenvolvido em um determinado município.
-                  </h1>
-              </div>
-              <div className="card">
                 <h1 className="titulo">Distância média</h1>
                   <h1 className="card-info">
                   Distância média das ferrovias que começaram a 
@@ -28,13 +21,13 @@ function Home()
               </div>
             </div>
             
-            <Input placeholder="Entre com o nome do município" backgroundColor="#fff" 
+            <Input placeholder="Entre com o nome do município, para buscar o informações doprojeto mais longo" 
+            backgroundColor="#fff" 
               marginBottom="5" height="20"
               onChange={e=> getProjetoLongo(e.target.value)}
               />
             <Table variant="simple" backgroundColor="#fff">
               
-                <TableCaption>Imperial to metric conversion factors</TableCaption>
                 <Thead>
                   <Tr>
                     <Th>Nome</Th>

@@ -144,6 +144,18 @@ const PredioDao =
             }).catch(
                 erro => console.log(erro)
             )
+    },
+    media: async (data,set) =>
+    {
+        baseApi.post('/listar/media',{
+            "dataInicio":data
+        }).then(respose=> 
+            {
+                console.log(respose)
+                set(respose)
+            }).catch(
+                erro => console.log(erro)
+            )
     }
 }
 export default PredioDao

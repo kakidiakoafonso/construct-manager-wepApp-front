@@ -58,7 +58,7 @@ export default function Estradas()
                                     <Td>{dados.codigoIdentificacao}</Td>
                                     <Td>{dados.dataInicio}</Td>
                                     <Td>{dados.duracao}</Td>
-                                    <Td>{dados.percentualConformidade}</Td>
+                                    <Td>{dados.percentualConformidade} %</Td>
                                     <Td>{dados.ferroviasEstradas}</Td>
                                     <Td>{dados.comprimento}</Td>
                                     <Td>{dados.dentroProvincia == 1? "Sim":"Não"}</Td>

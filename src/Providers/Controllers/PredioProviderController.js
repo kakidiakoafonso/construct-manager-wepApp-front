@@ -120,6 +120,7 @@ const PredioDao =
     },
     projetoLongo: async (municipio,set) =>
     {
+
         console.log(municipio);
         baseApi.post('/listar/clientelongo',{"municipio":municipio}).then(response=> 
             {
