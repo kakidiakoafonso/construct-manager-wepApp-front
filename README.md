@@ -24,23 +24,19 @@ npm start or yarn start
 ```
 # Screenshots
 ## Home
-<img src="https://pbs.twimg.com/profile_images/1381329888901271559/RbYqYk7A_400x400.jpg">
+<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(10).png">
 
 ## Home
+<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(9).png">
 
-<img src="https://pbs.twimg.com/profile_images/1381329888901271559/RbYqYk7A_400x400.jpg">
+## Table list
+<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(11).png">
 
-## Home
-<img src="https://pbs.twimg.com/profile_images/1381329888901271559/RbYqYk7A_400x400.jpg">
+## Add form 
+<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(12).png">
 
-## Home
-<img src="https://pbs.twimg.com/profile_images/1381329888901271559/RbYqYk7A_400x400.jpg">
-
-## Home
-<img src="https://pbs.twimg.com/profile_images/1381329888901271559/RbYqYk7A_400x400.jpg">
-
-## Home
-<img src="https://pbs.twimg.com/profile_images/1381329888901271559/RbYqYk7A_400x400.jpg">
+## Delete confirmation modal 
+<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(13).png">
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
