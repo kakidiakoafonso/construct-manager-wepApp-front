@@ -24,19 +24,19 @@ npm start or yarn start
 ```
 # Screenshots
 ## Home
-<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(10).png">
+<img src=https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(10).png>
 
 ## Home
-<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(9).png">
+<img src=https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(9).png>
 
-## Table list
-<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(11).png">
+## Project list
+<img src=https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(11).png>
 
 ## Add form 
-<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(12).png">
+<img src=https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(12).png>
 
 ## Delete confirmation modal 
-<img src="https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(13).png">
+<img src=https://raw.githubusercontent.com/kakidiakoafonso/construct-manager-wepApp-front/main/screeshots/Captura%20de%20Tela%20(13).png>
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
